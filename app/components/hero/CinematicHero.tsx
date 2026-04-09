@@ -21,11 +21,15 @@ export const CinematicHero: React.FC = () => {
     window.scrollTo(0, 0);
 
     const ctx = gsap.context(() => {
-      // 1. Initial States - Ensuring GSAP takes control immediately
+      // 1. Initial States - Poster Frame Preparation
+      // Beat 1 and Hero Glow start slightly visible to remove the "blank stage" issue
       gsap.set('.narrative-beat', { opacity: 0, y: 30 });
-      gsap.set('.cinematic-product-proxy', { opacity: 0, scale: 0.8, blur: 20 });
-      gsap.set('#product-hero-spotlight', { opacity: 0, scale: 0.9, blur: 10 });
-      gsap.set('#hero-glow-main, #hero-glow-1, #hero-glow-2', { opacity: 0 });
+      gsap.set('#narrative-beat-1', { opacity: 1, y: 0 }); // Explicit visibility for the poster
+      
+      gsap.set('.cinematic-product-proxy', { opacity: 0.05, scale: 0.9, blur: 20 });
+      gsap.set('#product-hero-spotlight', { opacity: 0.08, scale: 0.95, blur: 10 });
+      gsap.set('#hero-glow-main', { opacity: 0.3, scale: 1 });
+      gsap.set('#hero-glow-1, #hero-glow-2', { opacity: 0 });
 
       // 2. Master Timeline for the pinned sequence
       const tl = gsap.timeline({
@@ -40,19 +44,22 @@ export const CinematicHero: React.FC = () => {
         },
       });
 
-      // BEAT 1: Brand/Thesis Arrival (Entry)
-      tl.to('#narrative-beat-1', { opacity: 1, y: 0, duration: 2, ease: 'power2.out' });
+      // BEAT 0: Poster Transition (Fading the entry cue)
+      tl.to('#hero-scroll-cue', { opacity: 0, y: -20, duration: 1 });
+      
+      // BEAT 1: Brand/Thesis Arrival (Deepening)
+      // Since it's already visible, we just "set" or stay here for a moment
       tl.to('#hero-glow-main', { opacity: 1, scale: 1.2, duration: 2 }, '<');
       
       // Sustain Beat 1
-      tl.to({}, { duration: 1.5 }); // Cinematic Pause
+      tl.to({}, { duration: 1.5 }); 
 
       // BEAT 2: Product World Emergence
       tl.to('#narrative-beat-1', { opacity: 0, y: -40, duration: 1.5, ease: 'power2.in' });
       
       tl.to('#product-hero-spotlight', { opacity: 1, scale: 1, blur: 0, duration: 2.5, ease: 'power2.out' }, '<+0.5');
       tl.to('.cinematic-product-proxy', { 
-        opacity: (i) => 0.15 + (i * 0.05),
+        opacity: (i) => 0.2 + (i * 0.05),
         scale: 1, 
         blur: 0, 
         stagger: 0.1, 
@@ -106,11 +113,6 @@ export const CinematicHero: React.FC = () => {
         <AtmosphereLayer />
         <ProductStage />
         <NarrativeLayer />
-
-        {/* Scroll Momentum Hint */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-4 text-foreground/20 pointer-events-none">
-            <div className="w-[1px] h-12 bg-gradient-to-b from-gold/40 to-transparent opacity-30" />
-        </div>
       </div>
     </div>
   );

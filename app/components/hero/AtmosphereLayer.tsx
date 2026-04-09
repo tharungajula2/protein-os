@@ -13,7 +13,7 @@ export const AtmosphereLayer: React.FC = () => {
       <div className="absolute inset-0">
         <div id="hero-glow-1" className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent-choco/5 blur-[120px] rounded-full opacity-0" />
         <div id="hero-glow-2" className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent-coffee/5 blur-[120px] rounded-full opacity-0" />
-        <div id="hero-glow-main" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold/5 blur-[150px] rounded-full opacity-0" />
+        <div id="hero-glow-main" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold/5 blur-[150px] rounded-full opacity-[0.03]" />
       </div>
 
       {/* Subtle Grid / Technical Texture */}

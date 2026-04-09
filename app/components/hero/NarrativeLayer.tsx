@@ -5,15 +5,21 @@ export const NarrativeLayer: React.FC = () => {
     <div className="absolute inset-0 z-30 flex items-center justify-center px-6 pointer-events-none">
       <div className="max-w-5xl mx-auto text-center">
         
-        {/* Beat 1: Brand Arrival */}
-        <div id="narrative-beat-1" className="narrative-beat flex flex-col items-center opacity-0 translate-y-20">
-            <span className="text-gold/60 text-[10px] uppercase tracking-[0.5em] font-bold mb-6">Director's Thesis</span>
+        {/* Beat 1: Brand Arrival — Initial Poster State */}
+        <div id="narrative-beat-1" className="narrative-beat flex flex-col items-center">
+            <span className="text-gold/40 text-[9px] uppercase tracking-[0.6em] font-bold mb-8">Director's Thesis</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.05] mb-8 text-balance">
                 The operating system for modern protein brands
             </h1>
             <p className="text-lg md:text-2xl text-foreground/40 font-light max-w-3xl mx-auto leading-relaxed text-balance">
                 From storytelling and flavor labs to trust design and unit economics — we map how brands win.
             </p>
+            
+            {/* Scroll Indication Cue */}
+            <div id="hero-scroll-cue" className="mt-20 flex flex-col items-center gap-4 opacity-40">
+                <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-gold/60">Scroll to Enter</span>
+                <div className="w-px h-12 bg-gradient-to-b from-gold/40 to-transparent" />
+            </div>
         </div>
 
         {/* Beat 2: Product Emergence - Minimal Text */}

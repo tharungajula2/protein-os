@@ -5,7 +5,7 @@ export const ProductStage: React.FC = () => {
   return (
     <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
       {/* Central Product Spotlight - Beat 2 focus */}
-      <div id="product-hero-spotlight" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-[500px] flex items-center justify-center opacity-0 scale-90 blur-md">
+      <div id="product-hero-spotlight" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-[500px] flex items-center justify-center opacity-[0.05] scale-90 blur-md">
         <div className="w-full h-full bg-gradient-to-br from-graphite to-background rounded-2xl border border-foreground/10 shadow-[0_50px_100px_rgba(0,0,0,0.8)] relative group">
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-accent-choco/10 blur-3xl opacity-50" />
           <div className="absolute inset-0 flex items-center justify-center text-gold/20 font-serif italic text-4xl">
